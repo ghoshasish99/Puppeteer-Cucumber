@@ -2,10 +2,10 @@ const { expect } = require("chai");
 
 class ProductPage {
     async searchProduct(item){
-        await page.type('input[aria-label="Product search"]', item);
+        await page.type("#productsearch",item);
         await Promise.all([
             page.waitForNavigation({timeout:10000}),
-            page.click('button[aria-label="Search"]')
+            page.click('#searchicon')
         ]);
     }
 
