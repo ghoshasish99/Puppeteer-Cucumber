@@ -16,7 +16,10 @@ BeforeAll(async() =>{
         }
         else{
             console.log(moonHost)  
-            global.browser = await puppeteer.launch({timeout:10000});
+            global.browser = await puppeteer.launch({
+                timeout:10000,
+                headless:false
+            });
         }
 });
 
