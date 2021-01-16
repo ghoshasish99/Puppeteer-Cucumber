@@ -1,5 +1,5 @@
 
-
+![Puppeteer Test Execution](https://github.com/ghoshasish99/Puppeteer-Cucumber/workflows/Puppeteer%20Test%20Execution/badge.svg)
     
 # Puppeteer (execution on Moon) with CucumberJS
     
@@ -26,9 +26,10 @@ Finally execute the tests with `npm test`
 ```Javascript
 BeforeAll(async() =>{
         if (moonHost){
-                global.browser = await chromium.connect({
-                timeout: 0,
-                wsEndpoint: 'ws://'+moonHost+':4444/playwright/chromium'
+                global.browser = await puppeteer.connect({
+                timeout: 10000,
+                browserWSEndpoint : 'ws://'+moonHost+':4444/cdtp/chrome',
+                headless:false
             });
         }
         else{
@@ -39,7 +40,7 @@ BeforeAll(async() =>{
 ### Create a fresh browser context for each test
 ```Javascript
 Before(async() =>{
-    global.context = await global.browser.newContext();
+    global.context = await global.browser.createIncognitoBrowserContext();
     global.page = await global.context.newPage();
 });
 ```
@@ -60,13 +61,13 @@ When('User logged in eshop using the invalid emailid {string} and the invalid pa
     await loginpage.login(username,password);
 });
 ```
-### Example of how a Playwright code snippet looks
+### Example of how a Puppeteer code snippet looks
 ```Javascript
-const { firefox } = require('playwright');
+const puppeteer= require('puppeteer');
 
 (async () => {
-  const browser = await firefox.launch();
-  const context = await browser.newContext();
+  const browser = await puppeteer.launch();
+  const context = await browser.createIncognitoBrowserContext();
   const page = await context.newPage();
   await page.goto('https://www.example.com/');
   await page.screenshot({ path: 'page.png', fullPage: true });

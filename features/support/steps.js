@@ -20,8 +20,6 @@ Then('User should not get logged in', async()=>{
 });
 
 When('User create account with {string}, {string}, {string} and {string}', async(fname, lname, email, password) => {
-    let random = Math.floor(Math.random()*90000) + 10000;
-   // email = email.replace('Ashish','Ashish'+random);
     await loginpage.createAccount(fname,lname,email,password);
 });
 
