@@ -33,7 +33,7 @@ BeforeAll(async() =>{
             });
         }
         else{
-            global.browser = await chromium.launch();
+            global.browser = await puppeteer.launch();
         }
 });
 ```
