@@ -2,6 +2,7 @@ const { expect } = require("chai");
 
 class ProductPage {
     async searchProduct(item){
+        await page.waitForSelector('#productsearch') 
         await page.type("#productsearch",item);
         await Promise.all([
             page.waitForNavigation({timeout:10000}),
@@ -14,9 +15,13 @@ class ProductPage {
     }
 
     async addProduct(item){
-        await page.click('.MuiCardContent-root > :nth-child(1)');
-        await page.click('.MuiCardContent-root > .MuiButton-containedSecondary > .MuiButton-label');
-        await page.click('.MuiBadge-root .MuiSvgIcon-root path');
+        await page.waitForXPath('//*[text()="'+item+'"]',{timeout:1000});
+        const products = await page.$x('//*[text()="'+item+'"]')
+        await products[0].click()
+        const elements = await page.$x('//button/span[text()="Add to your basket"]')
+        await elements[0].click()
+        await page.click("#basket")
+        await page.waitForSelector("#proceedtocheckout")
     }
 
     async productAddSuccessful(item){

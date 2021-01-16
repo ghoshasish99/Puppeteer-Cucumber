@@ -4,17 +4,17 @@
     "elements": [
       {
         "description": "",
-        "id": "payment;order-a-product",
+        "id": "search-add;search-product",
         "keyword": "Scenario Outline",
         "line": 3,
-        "name": "Order a product",
+        "name": "Search Product",
         "steps": [
           {
             "keyword": "Before",
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 1174000000
+              "duration": 1499000000
             }
           },
           {
@@ -27,7 +27,7 @@
             },
             "result": {
               "status": "failed",
-              "duration": 5015000000,
+              "duration": 5008000000,
               "error_message": "Error: function timed out, ensure the promise resolves within 5000 milliseconds\n    at Timeout._onTimeout (C:\\Users\\LA56QS\\Experiments\\Puppeteer-Cucumber\\node_modules\\@cucumber\\cucumber\\lib\\user_code_runner.js:63:28)\n    at listOnTimeout (internal/timers.js:549:17)\n    at processTimers (internal/timers.js:492:7)"
             }
           },
@@ -35,7 +35,7 @@
             "arguments": [],
             "keyword": "When ",
             "line": 5,
-            "name": "User logged in eshop using the valid emailid \"Ashish@shop.com\" and the valid password \"Ashishpwd$1\"",
+            "name": "User logged in eshop using the valid emailid \"Ashish@shop.com\" and the valid password \"Password$1\"",
             "match": {
               "location": "features\\support\\steps.js:32"
             },
@@ -50,7 +50,7 @@
             "line": 6,
             "name": "User searches for the \"Apple iPhone 6s Plus\"",
             "match": {
-              "location": "features\\support\\steps.js:36"
+              "location": "features\\support\\steps.js:39"
             },
             "result": {
               "status": "skipped",
@@ -63,33 +63,7 @@
             "line": 7,
             "name": "User adds \"Apple iPhone 6s Plus\" product to the cart",
             "match": {
-              "location": "features\\support\\steps.js:41"
-            },
-            "result": {
-              "status": "skipped",
-              "duration": 0
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 8,
-            "name": "User enters Address details with \"Mr\",\"Ashish\", \"Ghosh\", \"Amstelveen\",\"Uilenstede\",\"Amsterdam\",\"Amsterdam\", \"1181\"",
-            "match": {
-              "location": "features\\support\\steps.js:49"
-            },
-            "result": {
-              "status": "skipped",
-              "duration": 0
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 9,
-            "name": "User enters Payment details with \"1234567890\", \"Ashish\", \"2031\",\"11\",\"151\"",
-            "match": {
-              "location": "features\\support\\steps.js:53"
+              "location": "features\\support\\steps.js:44"
             },
             "result": {
               "status": "skipped",
@@ -99,10 +73,10 @@
           {
             "arguments": [],
             "keyword": "Then ",
-            "line": 10,
-            "name": "User should get the Confirmation of Order",
+            "line": 8,
+            "name": "User should be able to view and add the listed product \"Apple iPhone 6s Plus\"",
             "match": {
-              "location": "features\\support\\steps.js:57"
+              "location": "features\\support\\steps.js:48"
             },
             "result": {
               "status": "skipped",
@@ -114,7 +88,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 1000000
+              "duration": 2000000
             }
           }
         ],
@@ -122,11 +96,11 @@
         "type": "scenario"
       }
     ],
-    "id": "payment",
+    "id": "search-add",
     "line": 1,
     "keyword": "Feature",
-    "name": "Payment",
+    "name": "Search-Add",
     "tags": [],
-    "uri": "features\\payment.feature"
+    "uri": "features\\search.feature"
   }
 ]

@@ -20,12 +20,16 @@ class LoginPage {
     async createAccount(fname,lname,email,password){
         let random = Math.floor(Math.random()*90000) + 10000;
         email = email.replace('Ashish','Ashish'+random); 
-        await page.click('div.login > .MuiButtonBase-root > .MuiButton-label');
+        await Promise.all([
+            page.waitForNavigation({timeout:10000}),
+            page.click('div.login > .MuiButtonBase-root > .MuiButton-label')
+        ]);
+        await page.waitForSelector('#firstname',{timeout:10000});
         await page.type('#firstname', fname);
         await page.type('#lastname', lname);
         await page.type('#registeremail', email);
         await page.type('#password', password);
-        await page.type('#confirmpassword', password);
+        await page.type('#confirmpassword', password);      
         await Promise.all([
             page.waitForNavigation({timeout:10000}),
             page.click('form.register > .MuiButtonBase-root > .MuiButton-label')
@@ -35,12 +39,6 @@ class LoginPage {
         await page.waitForSelector('input[aria-label="Product search"]') 
         //await page.$('input[aria-label="Product search"]');
         //expect (element).to.not.be.null;
-    }
-    async alreadyLoggedin(email,password){
-        let random = Math.floor(Math.random()*90000) + 10000;
-        email = email.replace('Ashish','Ashish'+random);
-        this.createAccount('Ashish','Ghosh',email,password);
-        this.loginSuccessful();
     }
   }
   module.exports = { LoginPage };

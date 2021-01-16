@@ -18,7 +18,7 @@ BeforeAll(async() =>{
             console.log(moonHost)  
             global.browser = await puppeteer.launch({
                 timeout:10000,
-                headless:false
+                headless:true
             });
         }
 });

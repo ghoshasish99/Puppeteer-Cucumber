@@ -21,7 +21,7 @@ Then('User should not get logged in', async()=>{
 
 When('User create account with {string}, {string}, {string} and {string}', async(fname, lname, email, password) => {
     let random = Math.floor(Math.random()*90000) + 10000;
-    email = email.replace('Ashish','Ashish'+random);
+   // email = email.replace('Ashish','Ashish'+random);
     await loginpage.createAccount(fname,lname,email,password);
 });
 
@@ -30,7 +30,10 @@ Then('User account should get created', async()=> {
 });
 
 When('User logged in eshop using the valid emailid {string} and the valid password {string}', async (email, password) =>{
-    await loginpage.alreadyLoggedin(email,password); 
+    let random = Math.floor(Math.random()*90000) + 10000;
+    email = email.replace('Ashish','Ashish'+random); 
+    await loginpage.createAccount('Ashish','Ghosh',email,password)
+    await loginpage.loginSuccessful()
 });
 
 When('User searches for the {string}', async (item) =>{

@@ -10,5 +10,5 @@ Feature: Payment
     Then User should get the Confirmation of Order
 
     Examples:
-      | EmailID         |   Password  | Product              | Title | FirstName | LastName | Line1        | Line2         | City      | State       | Zipcode | CardNumber       | CardName | Year | Month | SecurityCode |
+      | EmailID            |   Password  | Product              | Title | FirstName | LastName | Line1        | Line2         | City      | State       | Zipcode | CardNumber       | CardName | Year | Month | SecurityCode |
       | Ashish@shop.com | Ashishpwd$1 | Apple iPhone 6s Plus | Mr    | Ashish    | Ghosh    | Amstelveen   | Uilenstede    | Amsterdam | Amsterdam   | 1181    | 1234567890       | Ashish   | 2031 | 11    | 151          |
